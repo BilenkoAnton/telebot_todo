@@ -20,7 +20,6 @@ def get_messages(user_id):
     messages = list(cursor.execute(f'SELECT text FROM todo_app_message WHERE account_id = {user_id} AND '
                                    f'message_date BETWEEN "{last_function}" '
                                    f'AND "{datetime.datetime.utcnow()}"'))
-    print(last_function, datetime.datetime.utcnow())
     if messages:
         return messages
     else:
