@@ -21,7 +21,7 @@ def get_messages(user_id):
                                    f'message_date BETWEEN "{last_function}" '
                                    f'AND "{datetime.datetime.now()-datetime.timedelta(hours=2)}"'))
     if messages:
-        return messages[0]
+        return messages
     else:
         return None
 
@@ -35,7 +35,7 @@ def main_function():
         if messages:
             for message_ in messages:
                 try:
-                    bot.send_message(telegram_id, f'you have new message: {message_}')
+                    bot.send_message(telegram_id, f'you have new message: {message_[0]}')
                 except:
                     continue
 
