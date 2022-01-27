@@ -18,9 +18,6 @@ def get_telegram_and_user_id_list():
 
 
 def get_messages(user_id):
-    # messages = list(cursor.execute(f'SELECT text FROM todo_app_message WHERE account_id = {user_id} AND '
-    #                                f'message_date BETWEEN "{last_function}" '
-    #                                f'AND "{datetime.datetime.utcnow()}"'))
     present_time = f'"{datetime.datetime.utcnow()}"'
     messages_request = 'SELECT text FROM todo_app_message WHERE account_id = ? AND message_date BETWEEN ? AND ?'
     param_for_messages = (str(user_id), last_function, present_time)
